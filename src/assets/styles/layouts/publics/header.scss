@@ -1,0 +1,85 @@
+@use '../../components/variables' as *;
+
+.tientv-public-header {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 0.5rem 1rem;
+
+    p {
+        text-align: center;
+        flex: 1 1 auto;
+        color: $primary-color;
+    }
+
+    .v-btn {
+        border-radius: 0;
+    }
+
+    .v-btn--size-default {
+        font-size: 13px;
+    }
+
+    .tientv-socials {
+        display: flex;
+        align-items: center;
+        font-size: 13px;
+        font-weight: 500;
+        color: $primary-color;
+
+        a {
+            margin-left: 0.25rem;
+            color: $primary-color;
+        }
+
+        flex-shrink: 0;
+    }
+
+    .tientv-navbar1-container {
+
+        margin-left: auto;
+    }
+
+    .tientv-navbar2-container {
+        margin-left: 1rem;
+    }
+}
+
+.header-searchs {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    gap: 1rem;
+
+    .search-item:nth-child(2) {
+        /* BẮT ĐẦU CHIẾM TOÀN BỘ KHÔNG GIAN */
+        flex: 1;
+        /* KẾT THÚC CHIẾM TOÀN BỘ KHÔNG GIAN */
+    }
+
+    .search-item {
+        .logo {
+            font-size: 2rem;
+        }
+
+        input {
+            font-size: 14px;
+            width: 100%;
+            padding: 0.5rem;
+            outline: none;
+            border: 1px solid $primary-color;
+        }
+
+        .v-btn {
+            border-radius: 0;
+        }
+
+        .v-btn--size-default {
+            font-size: 13px;
+        }
+    }
+}

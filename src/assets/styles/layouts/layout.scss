@@ -1,0 +1,28 @@
+@use '../layouts/publics/header.scss';
+@use '../layouts/publics/footer.scss';
+
+.public-layout {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+.login-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    main {
+        flex: auto;
+    }
+
+    footer {
+        flex-shrink: 0;
+    }
+}
