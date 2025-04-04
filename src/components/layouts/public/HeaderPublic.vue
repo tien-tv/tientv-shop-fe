@@ -44,7 +44,7 @@
                     Đăng nhập
                 </v-btn>
                 <div v-else class="user-info">
-                    <span>Xin chào, {{ authStore.user.name }}</span>
+                    <span>Xin chào, {{ authStore.user.role }}</span>
                     <v-btn color="#0056d6" style="text-transform: none;" variant="text" @click="logout">
                         Đăng xuất
                     </v-btn>
@@ -80,7 +80,7 @@ const dialog = ref('');
 const authStore = useAuthStore();
 const router = useRouter();
 
-const isLoggedIn = computed(() => !!authStore.user);
+
 const user = computed(() => authStore.user);
 
 const logout = async () => {

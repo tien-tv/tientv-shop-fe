@@ -4,7 +4,8 @@ import axios from 'axios'
 
 export const useAuthStore = defineStore('auth', {
   state: () => ({
-    user: null
+    user: null,
+    isLoggedIn: false,
   }),
   actions: {
     async login() {
@@ -31,7 +32,7 @@ export const useAuthStore = defineStore('auth', {
 
       const authUrl = `${baseUrl}?${params.toString()}`;
 
-      window.location.replace(authUrl);
+      this.isLoggedIn = true;
     },
     async logout() {
       try {
@@ -66,7 +67,6 @@ export const useAuthStore = defineStore('auth', {
           window.location.reload();
         }, 1000);
       } catch (error) {
-        console.error("Logout failed:", error);
         alert("Đăng xuất thất bại. Vui lòng thử lại.");
       }
     },
@@ -75,12 +75,17 @@ export const useAuthStore = defineStore('auth', {
         const response = await axios.get('/api/user');
         if (response.status === 200) {
           this.user = response.data;
+          this.isLoggedIn = true;
+          localStorage.setItem('user', JSON.stringify(this.user));
         } else {
           this.user = null;
+          this.isLoggedIn = false;
+          localStorage.removeItem('user');
         }
       } catch (error) {
-        console.error('Fetch user error:', error);
         this.user = null;
+        this.isLoggedIn = false;
+        localStorage.removeItem('user');
       }
     },
   },
